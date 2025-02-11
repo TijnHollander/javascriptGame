@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>haai</h1>
+    <h1>Farm Clicker</h1>
+    <p id="counter">Coins: 0</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Chocolate_Chip_Cookie.jpg" alt="Coins" class="Coins" id="Coins">
+    <!-- Hier kan je de units kopen -->
+    <div class="store">
+        <button id="unit1" class="hidden">Koop Kip (+3/sec)</button>
+        <button id="unit2" class="hidden">Koop Kat (+6/sec)</button>
+    </div>
+    
+    <div class="purchases">
+        <h2>Aankopen</h2>
+        <ul id="purchaseList"></ul>
+    </div>
+
 </body>
+
 </html>
