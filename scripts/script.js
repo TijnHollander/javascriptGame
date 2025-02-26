@@ -1,88 +1,66 @@
-const settings = JSON.parse(localStorage.getItem("clickerGameSettings")) || {
-    coins: 0,
-    cps: 0,
-    units: {
-        kip: 0,
-        kat: 0
-    },
-    multiplier: 1.1,
-};
+let coins = 0;
+let coinsPerSecond = 0;
+const upgrades = [
+    { id: "unit1", cost: 100, rate: 3, name: "Kip", count: 0 },
+    { id: "unit2", cost: 1000, rate: 6, name: "Kat", count: 0 },
+    { id: "unit3", cost: 3000, rate: 9, name: "Hond", count: 0 },
+    { id: "unit4", cost: 10000, rate: 15, name: "Varken", count: 0 },
+    { id: "unit5", cost: 100000, rate: 20, name: "Geit", count: 0 },
+    { id: "unit6", cost: 1000000, rate: 50, name: "Schaap", count: 0 },
+    { id: "unit7", cost: 6000000, rate: 120, name: "Paard", count: 0 },
+    { id: "unit8", cost: 300000000, rate: 200, name: "Koe", count: 0 }
+];
 
-// HTML-elementen ophalen
-const coinCounter = document.getElementById("counter");
-const coinImage = document.getElementById("Coins");
-const unit1Button = document.getElementById("unit1");
-const unit2Button = document.getElementById("unit2");
+const counter = document.getElementById("counter");
+const coinImg = document.getElementById("Coins");
 const purchaseList = document.getElementById("purchaseList");
 
-// Array van units (kan makkelijk worden uitgebreid)
-const units = {
-    kip: { price: 50, cps: 3 },
-    kat: { price: 100, cps: 6 }
-};
-
-// UI updaten
-function updateUI() {
-    coinCounter.textContent = `Coins: ${settings.coins}`;
-
-    // Knoppen activeren/deactiveren
-    unit1Button.disabled = settings.coins < units.kip.price;
-    unit2Button.disabled = settings.coins < units.kat.price;
-
-    // Aankopen tonen
-    purchaseList.innerHTML = "";
-    if (settings.units.kip > 0) {
-        purchaseList.innerHTML += `<li>Kippen: ${settings.units.kip} (⏫ ${units.kip.price.toFixed(0)} Coins)</li>`;
-    }
-    if (settings.units.kat > 0) {
-        purchaseList.innerHTML += `<li>Katten: ${settings.units.kat} (⏫ ${units.kat.price.toFixed(0)} Coins)</li>`;
-    }
-
-    // Opslaan in localStorage
-    localStorage.setItem("clickerGameSettings", JSON.stringify(settings));
-}
-
-// Op munt klikken
-coinImage.addEventListener("click", () => {
-    settings.coins += 1;
+coinImg.addEventListener("click", () => {
+    coins = Math.floor(coins + 1);
     updateUI();
 });
 
-// Kip kopen
-unit1Button.addEventListener("click", () => {
-    if (settings.coins >= units.kip.price) {
-        settings.coins -= units.kip.price;
-        settings.units.kip += 1;
-        settings.cps += units.kip.cps;
+function updateUI() {
+    counter.textContent = `Coins: ${Math.floor(coins)}`;
+    upgrades.forEach(upgrade => {
+        const button = document.getElementById(upgrade.id);
+        button.textContent = `${upgrade.name} (Kosten: ${Math.floor(upgrade.cost)}) (+${upgrade.rate}/sec)`;
+        button.disabled = coins < upgrade.cost;
+    });
+    updatePurchaseList();
+}
 
-        // Prijs x1.1 verhogen en afronden
-        units.kip.price = Math.ceil(units.kip.price * 1.1);
-
+function buyUpgrade(upgrade) {
+    if (coins >= upgrade.cost) {
+        coins = Math.floor(coins - upgrade.cost);
+        coinsPerSecond += upgrade.rate;
+        upgrade.cost *= 1.1; // Verhoog de prijs met 10%
+        upgrade.count += 1;
         updateUI();
     }
+}
+
+function updatePurchaseList() {
+    purchaseList.innerHTML = "";
+    upgrades.forEach(upgrade => {
+        if (upgrade.count > 0) {
+            const li = document.createElement("li");
+            li.textContent = `${upgrade.count}x ${upgrade.name} (+${upgrade.count * upgrade.rate}/sec)`;
+            purchaseList.appendChild(li);
+        }
+    });
+}
+
+upgrades.forEach(upgrade => {
+    const button = document.getElementById(upgrade.id);
+    button.addEventListener("click", () => buyUpgrade(upgrade));
+    button.disabled = true;
+    button.textContent = `${upgrade.name} (Kosten: ${Math.floor(upgrade.cost)}) (+${upgrade.rate}/sec)`;
 });
 
-// Kat kopen
-unit2Button.addEventListener("click", () => {
-    if (settings.coins >= units.kat.price) {
-        settings.coins -= units.kat.price;
-        settings.units.kat += 1;
-        settings.cps += units.kat.cps;
-
-        //fix multiplier
-        units.kat.price * settings.multiplier
-        console.log("test", settings.multiplier)
-
-
-        updateUI();
-    }
-});
-
-// Automatische inkomsten per seconde
 setInterval(() => {
-    settings.coins += settings.cps;
+    coins = Math.floor(coins + coinsPerSecond);
     updateUI();
 }, 1000);
 
-// Start UI bij laden
 updateUI();

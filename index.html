@@ -10,20 +10,33 @@
 </head>
 
 <body>
-    <h1>Farm Clicker</h1>
-    <p id="counter">Coins: 0</p>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Chocolate_Chip_Cookie.jpg" alt="Coins" class="Coins" id="Coins">
-    <!-- Hier kan je de units kopen -->
-    <div class="store">
-        <button id="unit1" class="hidden">Koop Kip (+3/sec)</button>
-        <button id="unit2" class="hidden">Koop Kat (+6/sec)</button>
-    </div>
-    
-    <div class="purchases">
-        <h2>Aankopen</h2>
-        <ul id="purchaseList"></ul>
-    </div>
+    <div class="flex-container">
+        <div class="flex-column">
+            <h1>Farm Clicker</h1>
+            <p id="counter">Coins: 0</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Chocolate_Chip_Cookie.jpg" alt="Coins"
+                class="Coins" id="Coins">
+        </div>
+        <div class="flex-column">
+            <div class="store">
+                <button id="unit1">Koop Kip (+3/sec)</button> <!-- Wanneer je 100 coins hebt moet deze button enabled worden -->
+                <button id="unit2">Koop Kat (+6/sec)</button> <!-- Wanneer je 1000 coins hebt moet deze button enabled worden -->
+                <button id="unit3">Koop Hond (+9/sec)</button> <!-- Wanneer je 3000 coins hebt moet deze button enabled worden -->
+                <button id="unit4">Koop Varken (+15/sec)</button> <!-- Wanneer je 10000 coins hebt moet deze button enabled worden -->
+                <button id="unit5">Koop Geit (+20/sec)</button> <!-- Wanneer je 100000 coins hebt moet deze button enabled worden -->
+                <button id="unit6">Koop Schaap (+50/sec)</button> <!-- Wanneer je 1000000 coins hebt moet deze button enabled worden -->
+                <button id="unit7">Koop Paard (+120/sec)</button> <!-- Wanneer je 6000000 coins hebt moet deze button enabled worden -->
+                <button id="unit8">Koop Koe (+200/sec)</button> <!-- Wanneer je 300000000 coins hebt moet deze button enabled worden -->
+            </div>
+        </div>
 
+        <div class="flex-column">
+            <div class="purchases">
+                <h2>Aankopen</h2>
+                <ul id="purchaseList"></ul>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
