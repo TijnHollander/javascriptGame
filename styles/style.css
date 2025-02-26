@@ -28,6 +28,11 @@
     max-width: 1200px;
 }
 
+.Coins {
+    width: 150px;
+    height: 150px;
+}
+
 .store button {
     padding: 15px;
 }

@@ -34,7 +34,7 @@ function buyUpgrade(upgrade) {
     if (coins >= upgrade.cost) {
         coins = Math.floor(coins - upgrade.cost);
         coinsPerSecond += upgrade.rate;
-        upgrade.cost *= 1.1; // Verhoog de prijs met 10%
+        upgrade.cost *= 1.3; // Verhoog de prijs met 30% maakt game wat moeilijker
         upgrade.count += 1;
         updateUI();
     }
