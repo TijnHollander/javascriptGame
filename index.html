@@ -1,42 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Farm clicker</title>
     <script src="./scripts/script.js" defer></script>
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body>
-    <div class="flex-container">
-        <div class="flex-column">
+    <section class="flex-container">
+        <section class="flex-column-clicks">
             <h1>Farm Clicker</h1>
             <p id="counter">Coins: 0</p>
-            <img src="./images/flour.jpg" alt="Coins"
-                class="Coins" id="Coins">
-        </div>
-        <div class="flex-column">
+            <button class="Coins" id="Coins">
+            </button>
+        </section>
+        <section class="flex-column-store">
             <div class="store">
-                <button id="unit1">Koop Kip (+3/sec)</button> <!-- Wanneer je 100 coins hebt moet deze button enabled worden -->
-                <button id="unit2">Koop Kat (+6/sec)</button> <!-- Wanneer je 1000 coins hebt moet deze button enabled worden -->
-                <button id="unit3">Koop Hond (+9/sec)</button> <!-- Wanneer je 3000 coins hebt moet deze button enabled worden -->
-                <button id="unit4">Koop Varken (+15/sec)</button> <!-- Wanneer je 10000 coins hebt moet deze button enabled worden -->
-                <button id="unit5">Koop Geit (+20/sec)</button> <!-- Wanneer je 100000 coins hebt moet deze button enabled worden -->
-                <button id="unit6">Koop Schaap (+50/sec)</button> <!-- Wanneer je 1000000 coins hebt moet deze button enabled worden -->
-                <button id="unit7">Koop Paard (+120/sec)</button> <!-- Wanneer je 6000000 coins hebt moet deze button enabled worden -->
-                <button id="unit8">Koop Koe (+200/sec)</button> <!-- Wanneer je 300000000 coins hebt moet deze button enabled worden -->
+                <button id="unit1">Koop Kip (+3/sec)</button>
+                <button id="unit2">Koop Kat (+6/sec)</button> 
+                <button id="unit3">Koop Hond (+9/sec)</button> 
+                <button id="unit4">Koop Varken (+15/sec)</button> 
+                <button id="unit5">Koop Geit (+20/sec)</button> 
+                <button id="unit6">Koop Schaap (+50/sec)</button> 
+                <button id="unit7">Koop Paard (+120/sec)</button> 
+                <button id="unit8">Koop Koe (+200/sec)</button> 
             </div>
-        </div>
+        </section>
 
-        <div class="flex-column">
+        <section class="flex-column-aankopen">
             <div class="purchases">
                 <h2>Aankopen</h2>
                 <ul id="purchaseList"></ul>
             </div>
-        </div>
-    </div>
+        </section>
+    </section>
 </body>
 
 </html>
