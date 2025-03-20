@@ -15,8 +15,13 @@ const counter = document.getElementById("counter");
 const coinImg = document.getElementById("Coins");
 const purchaseList = document.getElementById("purchaseList");
 
+// Geluid toevoegen voeg bron toe stack etc.... 
+const clickSound = new Audio("../images/clicks.mp3"); // Zorg ervoor dat dit bestand bestaat in je projectmap
+// Geluid toevoegen on:click
 coinImg.addEventListener("click", () => {
     coins = Math.floor(coins + 1);
+    clickSound.currentTime = 0; // Reset geluid voor snelle herhaalde klikken
+    clickSound.play();
     updateUI();
 });
 
