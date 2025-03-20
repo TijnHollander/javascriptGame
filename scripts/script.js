@@ -10,7 +10,7 @@ const upgrades = [
     { id: "unit7", cost: 6000000, rate: 120, name: "Paard", count: 0 },
     { id: "unit8", cost: 300000000, rate: 200, name: "Koe", count: 0 }
 ];
-
+// Je kan coins "incheaten" door coins = 100000 te doen de 10 duizend kun je vervangen voor eigen aantal hoef je niet veel te klikken.
 const counter = document.getElementById("counter");
 const coinImg = document.getElementById("Coins");
 const purchaseList = document.getElementById("purchaseList");
@@ -22,10 +22,10 @@ coinImg.addEventListener("click", () => {
     coins = Math.floor(coins + 1);
     clickSound.currentTime = 0; // Reset geluid voor snelle herhaalde klikken
     clickSound.play();
-    updateUI();
+    updateConttent();
 });
 
-function updateUI() {
+function updateConttent() {
     counter.textContent = `Coins: ${Math.floor(coins)}`;
     upgrades.forEach(upgrade => {
         const button = document.getElementById(upgrade.id);
@@ -39,9 +39,9 @@ function buyUpgrade(upgrade) {
     if (coins >= upgrade.cost) {
         coins = Math.floor(coins - upgrade.cost);
         coinsPerSecond += upgrade.rate;
-        upgrade.cost *= 1.3; // Verhoog de prijs met 30% maakt game wat moeilijker misschien nog teveel?
+        upgrade.cost *= 1.3; // NOTE VOOR SELF: Verhoog de prijs met 30% maakt game wat moeilijker misschien nog teveel?
         upgrade.count += 1;
-        updateUI();
+        updateConttent();
     }
 }
 
@@ -65,7 +65,7 @@ upgrades.forEach(upgrade => {
 
 setInterval(() => {
     coins = Math.floor(coins + coinsPerSecond);
-    updateUI();
+    updateConttent();
 }, 1000);
 
-updateUI();
+updateConttent();
