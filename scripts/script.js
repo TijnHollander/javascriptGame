@@ -16,11 +16,11 @@ const coinImg = document.getElementById("Coins");
 const purchaseList = document.getElementById("purchaseList");
 
 // Geluid toevoegen voeg bron toe stack etc.... 
-const clickSound = new Audio("../images/clicks.mp3"); // Zorg ervoor dat dit bestand bestaat in je projectmap
+const clickSound = new Audio("../images/click.mp3"); 
+const upgradeSound = new Audio("../images/upgrade.mp3"); 
 // Geluid toevoegen on:click
 coinImg.addEventListener("click", () => {
     coins = Math.floor(coins + 1);
-    clickSound.currentTime = 0; // Reset geluid voor snelle herhaalde klikken
     clickSound.play();
     updateConttent();
 });
@@ -36,6 +36,7 @@ function updateConttent() {
 }
 
 function buyUpgrade(upgrade) {
+    upgradeSound.play();
     if (coins >= upgrade.cost) {
         coins = Math.floor(coins - upgrade.cost);
         coinsPerSecond += upgrade.rate;
