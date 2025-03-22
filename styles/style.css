@@ -15,7 +15,7 @@ body {
     height: 100vh;
 }
 
-.flex-container > section {
+.flex-container>section {
     flex: 1;
     padding: 10px;
     align-items: center;
@@ -23,13 +23,11 @@ body {
     justify-content: center;
 }
 
-.flex-container > .flex-column-clicks {
+.flex-container>.flex-column-clicks {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-
-
 
 .flex-column-clicks {
     border: 10px solid transparent;
@@ -37,6 +35,9 @@ body {
     background: none;
     padding: 15px;
     border-image: url("../images/background.png") 30 round;
+    font-size: 36px;
+    color: white;
+    font-weight: 700;
 }
 
 .flex-column-store {
@@ -49,11 +50,14 @@ body {
     border: 10px solid transparent;
     padding: 15px;
     border-image: url("../images/background.png") 30 round;
+    font-size: 36px;
+    color: white;
+    font-weight: 700;
 }
 
 .flex-column-aankopen li {
- list-style-type: none;
- font-weight: 800;
+    list-style-type: none;
+    font-weight: 800;
 }
 
 .store {
@@ -62,7 +66,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 1em ;
+    gap: 1em;
     max-width: 1200px;
     overflow-y: scroll;
 }
@@ -77,21 +81,21 @@ body {
 }
 
 .Coins {
-width: 256px;
-height: 256px;
-background-image: url("../images/bloem1.png");
-background-size: 256px 256px;
-background-color: transparent;
-cursor: pointer;
-z-index: 1000;
-border: none;
-overflow: hidden;
-outline: none;
-transition: transform .3s;
+    width: 256px;
+    height: 256px;
+    background-image: url("../images/bloem1.png");
+    background-size: 256px 256px;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 1000;
+    border: none;
+    overflow: hidden;
+    outline: none;
+    transition: transform .3s;
 }
 
 .Coins:active {
-    transform: scale(1.1); 
+    transform: scale(1.1);
 }
 
 
@@ -113,27 +117,27 @@ transition: transform .3s;
 
 #unit4 {
     background-image: url("../images/pig.png");
- /* BRON: https://thumb.ac-illust.com/77/773d00ff5e2c73de95b35668004977f3_t.jpeg */
+    /* BRON: https://thumb.ac-illust.com/77/773d00ff5e2c73de95b35668004977f3_t.jpeg */
 }
 
 #unit5 {
     background-image: url("../images/geit.png");
- /* BRON: https://images.vexels.com/media/users/3/162246/isolated/preview/e4ae17a37982d85d03b4e8c87beec678-goat-hoof-horn-flat.png */
+    /* BRON: https://images.vexels.com/media/users/3/162246/isolated/preview/e4ae17a37982d85d03b4e8c87beec678-goat-hoof-horn-flat.png */
 }
 
 #unit6 {
     background-image: url("../images/schaap.png");
- /* BRON: https://img.freepik.com/premium-vector/sheep-cartoon-style-flat-vector-illustration-farm-animals_787461-956.jpg */
+    /* BRON: https://img.freepik.com/premium-vector/sheep-cartoon-style-flat-vector-illustration-farm-animals_787461-956.jpg */
 }
 
 #unit7 {
     background-image: url("../images/paard.png");
- /* BRON: https://static.vecteezy.com/system/resources/previews/046/724/637/non_2x/cartoon-horse-drawing-png.png */
+    /* BRON: https://static.vecteezy.com/system/resources/previews/046/724/637/non_2x/cartoon-horse-drawing-png.png */
 }
 
 #unit8 {
     background-image: url("../images/koe.png");
- /* BRON: https://e7.pngegg.com/pngimages/37/803/png-clipart-cattle-drawing-animation-cow-white-animals-thumbnail.png */
+    /* BRON: https://e7.pngegg.com/pngimages/37/803/png-clipart-cattle-drawing-animation-cow-white-animals-thumbnail.png */
 }
 
 
@@ -141,37 +145,46 @@ transition: transform .3s;
 /* Animation */
 @keyframes backgroundAnimation {
     0% {
-      background-color: steelblue;
+        background-color: steelblue;
     }
+
     10% {
         background-color: rgb(93, 156, 207);
     }
+
     20% {
         background-color: rgb(124, 182, 230);
     }
+
     30% {
         background-color: rgb(70, 90, 180);
     }
+
     40% {
         background-color: rgb(57, 88, 230);
     }
+
     50% {
         background-color: rgb(41, 147, 233);
     }
+
     60% {
         background-color: rgb(57, 88, 230);
     }
+
     70% {
         background-color: rgb(111, 138, 255);
     }
+
     80% {
         background-color: rgb(133, 153, 240);
     }
+
     90% {
         background-color: rgb(57, 88, 230);
     }
+
     100% {
         background-color: rgb(3, 142, 255);
     }
-  }
-  
+}

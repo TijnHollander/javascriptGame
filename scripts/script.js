@@ -14,11 +14,9 @@ const upgrades = [
 const counter = document.getElementById("counter");
 const coinImg = document.getElementById("Coins");
 const purchaseList = document.getElementById("purchaseList");
-
-// Geluid toevoegen voeg bron toe stack etc.... 
-const clickSound = new Audio("../images/click.mp3"); 
-const upgradeSound = new Audio("../images/upgrade.mp3"); 
-// Geluid toevoegen on:click
+const clickSound = new Audio("../images/click.mp3");
+const upgradeSound = new Audio("../images/upgrade.mp3");
+// Geluid toegevoeg iets wat niet in de les is voorgekomen
 coinImg.addEventListener("click", () => {
     coins = Math.floor(coins + 1);
     clickSound.play();
@@ -31,6 +29,11 @@ function updateConttent() {
         const button = document.getElementById(upgrade.id);
         button.textContent = `${upgrade.name} (Kosten: ${Math.floor(upgrade.cost)}) (+${upgrade.rate}/sec)`;
         button.disabled = coins < upgrade.cost;
+        if (button.disabled) {
+            button.style.filter = "brightness(0.3)";
+        } else {
+            button.style.filter = "brightness(1)";
+        }
     });
     updatePurchaseList();
 }
